@@ -6,11 +6,17 @@
     "26.1.x": "maintained",
     "26.2.x": "primary"
   },
-  "properties": {
-    "distributions.curseforge.id": "1254698",
-    "distributions.curseforge.slug": "hopper-gadgetry",
-    "distributions.github.slug": "hopper-gadgetry",
-    "distributions.modrinth.id": "RCK4uOMN",
-    "distributions.modrinth.slug": "hopper-gadgetry"
+  "distributions": {
+    "curseforge": {
+      "id": "1254698",
+      "slug": "hopper-gadgetry"
+    },
+    "github": {
+      "slug": "hopper-gadgetry"
+    },
+    "modrinth": {
+      "id": "RCK4uOMN",
+      "slug": "hopper-gadgetry"
+    }
   }
 }

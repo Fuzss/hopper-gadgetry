@@ -132,7 +132,10 @@ public class ChuteBlockEntity extends HopperBlockEntity implements TickingBlockE
             if (container != null && entity.getBoundingBox()
                     .move(-blockPos.getX(), -blockPos.getY(), -blockPos.getZ())
                     .intersects(blockEntity.getSuckAabb())) {
-                addItem(container, itemEntity);
+                // Mirrors the client level check from HopperBlockEntity::tryMoveItems.
+                if (!level.isClientSide()) {
+                    addItem(container, itemEntity);
+                }
             }
         }
     }

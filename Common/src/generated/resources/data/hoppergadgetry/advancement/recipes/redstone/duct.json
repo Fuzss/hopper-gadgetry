@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "hoppergadgetry:duct"
+        "recipes": "hoppergadgetry:duct"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "hoppergadgetry:chute"
+        "recipes": "hoppergadgetry:chute"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:grated_hopper_from_hopper"
+        "recipes": "hoppergadgetry:grated_hopper_from_hopper"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:grated_hopper_from_hopper"
+      "hoppergadgetry:grated_hopper_from_hopper"
     ]
   }
 }

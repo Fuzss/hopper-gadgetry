@@ -1,6 +1,5 @@
 package fuzs.hoppergadgetry.common.world.level.block;
 
-import com.mojang.serialization.MapCodec;
 import fuzs.hoppergadgetry.common.init.ModRegistry;
 import fuzs.hoppergadgetry.common.world.level.block.entity.GratedHopperBlockEntity;
 import fuzs.puzzleslib.common.api.block.v1.entity.TickingEntityBlock;
@@ -18,15 +17,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jspecify.annotations.Nullable;
 
 public class GratedHopperBlock extends HopperBlock implements TickingEntityBlock<GratedHopperBlockEntity> {
-    public static final MapCodec<HopperBlock> CODEC = simpleCodec(GratedHopperBlock::new);
 
     public GratedHopperBlock(Properties properties) {
         super(properties);
-    }
-
-    @Override
-    public MapCodec<HopperBlock> codec() {
-        return CODEC;
     }
 
     @Override

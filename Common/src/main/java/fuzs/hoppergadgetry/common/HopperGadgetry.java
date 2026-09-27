@@ -2,9 +2,7 @@ package fuzs.hoppergadgetry.common;
 
 import fuzs.hoppergadgetry.common.init.ModRegistry;
 import fuzs.puzzleslib.common.api.core.v1.ModConstructor;
-import fuzs.puzzleslib.common.api.core.v1.context.GameplayContentContext;
 import net.minecraft.resources.Identifier;
-import org.apache.commons.lang3.math.Fraction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,12 +14,6 @@ public class HopperGadgetry implements ModConstructor {
     @Override
     public void onConstructMod() {
         ModRegistry.bootstrap();
-    }
-
-    @Override
-    public void onRegisterGameplayContent(GameplayContentContext context) {
-        context.registerFuel(ModRegistry.DUCT_BLOCK, Fraction.getFraction(3, 2));
-        context.registerFuel(ModRegistry.CHUTE_BLOCK, Fraction.getFraction(3, 2));
     }
 
     public static Identifier id(String path) {

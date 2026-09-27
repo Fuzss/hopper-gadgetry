@@ -1,6 +1,5 @@
 package fuzs.hoppergadgetry.common.world.level.block;
 
-import com.mojang.serialization.MapCodec;
 import fuzs.hoppergadgetry.common.init.ModRegistry;
 import fuzs.hoppergadgetry.common.world.level.block.entity.ChuteBlockEntity;
 import fuzs.puzzleslib.common.api.block.v1.entity.TickingEntityBlock;
@@ -25,7 +24,6 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class ChuteBlock extends BaseEntityBlock implements TickingEntityBlock<ChuteBlockEntity> {
-    public static final MapCodec<ChuteBlock> CODEC = simpleCodec(ChuteBlock::new);
     public static final EnumProperty<Direction> FACING = BlockStateProperties.FACING_HOPPER;
     public static final VoxelShape TOP = Block.box(0.0, 10.0, 0.0, 16.0, 16.0, 16.0);
     public static final VoxelShape FUNNEL = Block.box(4.0, 0.0, 4.0, 12.0, 10.0, 12.0);
@@ -35,11 +33,6 @@ public class ChuteBlock extends BaseEntityBlock implements TickingEntityBlock<Ch
     public ChuteBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.DOWN));
-    }
-
-    @Override
-    public MapCodec<? extends BaseEntityBlock> codec() {
-        return CODEC;
     }
 
     @Override

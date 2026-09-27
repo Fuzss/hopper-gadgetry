@@ -28,6 +28,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProviders;
 
 public class ModRegistry {
     static final RegistryManager REGISTRIES = RegistryManager.from(HopperGadgetry.MOD_ID);
@@ -40,7 +41,8 @@ public class ModRegistry {
                     .sound(SoundType.WOOD)
                     .ignitedByLava()
                     .noOcclusion());
-    public static final Holder.Reference<Item> CHUTE_ITEM = REGISTRIES.registerBlockItem(CHUTE_BLOCK);
+    public static final Holder.Reference<Item> CHUTE_ITEM = REGISTRIES.registerBlockItem(CHUTE_BLOCK,
+            () -> new Item.Properties().cookingFuel(ContextIntProviders.COOKING_TIME_WOOD_BLOCKS));
     public static final Holder.Reference<Block> DUCT_BLOCK = REGISTRIES.registerBlock("duct",
             DuctBlock::new,
             () -> BlockBehaviour.Properties.of()
@@ -50,7 +52,8 @@ public class ModRegistry {
                     .sound(SoundType.WOOD)
                     .ignitedByLava()
                     .noOcclusion());
-    public static final Holder.Reference<Item> DUCT_ITEM = REGISTRIES.registerBlockItem(DUCT_BLOCK);
+    public static final Holder.Reference<Item> DUCT_ITEM = REGISTRIES.registerBlockItem(DUCT_BLOCK,
+            () -> new Item.Properties().cookingFuel(ContextIntProviders.COOKING_TIME_WOOD_BLOCKS));
     public static final Holder.Reference<Block> GRATED_HOPPER_BLOCK = REGISTRIES.registerBlock("grated_hopper",
             GratedHopperBlock::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.HOPPER));

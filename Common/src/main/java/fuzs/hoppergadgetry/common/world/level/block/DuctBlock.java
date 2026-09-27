@@ -1,6 +1,5 @@
 package fuzs.hoppergadgetry.common.world.level.block;
 
-import com.mojang.serialization.MapCodec;
 import fuzs.hoppergadgetry.common.init.ModRegistry;
 import fuzs.hoppergadgetry.common.world.level.block.entity.DuctBlockEntity;
 import fuzs.puzzleslib.common.api.block.v1.entity.TickingEntityBlock;
@@ -47,7 +46,6 @@ public class DuctBlock extends BaseEntityBlock implements TickingEntityBlock<Duc
     public static final BooleanProperty WEST = BlockStateProperties.WEST;
     public static final BooleanProperty UP = BlockStateProperties.UP;
     public static final BooleanProperty DOWN = BlockStateProperties.DOWN;
-    public static final MapCodec<DuctBlock> CODEC = simpleCodec(DuctBlock::new);
     private static final VoxelShape SHAPE = Block.box(4.0, 4.0, 4.0, 12.0, 12.0, 12.0);
     private static final VoxelShape OUTPUT_SHAPE = Block.box(6.0, 12.0, 6.0, 10.0, 16.0, 10.0);
     private static final VoxelShape INPUT_SHAPE = Block.box(5.0, 12.0, 5.0, 11.0, 16.0, 11.0);
@@ -70,11 +68,6 @@ public class DuctBlock extends BaseEntityBlock implements TickingEntityBlock<Duc
                 .setValue(WEST, Boolean.FALSE)
                 .setValue(UP, Boolean.FALSE)
                 .setValue(DOWN, Boolean.FALSE));
-    }
-
-    @Override
-    public MapCodec<? extends BaseEntityBlock> codec() {
-        return CODEC;
     }
 
     @Override

@@ -2,6 +2,7 @@ package fuzs.hoppergadgetry.common.world.level.block.entity;
 
 import fuzs.hoppergadgetry.common.init.ModRegistry;
 import fuzs.hoppergadgetry.common.world.level.block.ChuteBlock;
+import fuzs.puzzleslib.common.api.block.v1.entity.BlockEntityHelper;
 import fuzs.puzzleslib.common.api.block.v1.entity.TickingBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -16,7 +17,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.Hopper;
 import net.minecraft.world.level.block.entity.HopperBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -28,13 +29,9 @@ public class ChuteBlockEntity extends HopperBlockEntity implements TickingBlockE
     public static final Component COMPONENT_CHUTE = Component.translatable("container.chute");
 
     public ChuteBlockEntity(BlockPos blockPos, BlockState blockState) {
-        super(blockPos, blockState);
+        super(blockPos, Blocks.HOPPER.defaultBlockState());
+        BlockEntityHelper.init(this, ModRegistry.CHUTE_BLOCK_ENTITY_TYPE.value(), blockState);
         super.setItems(NonNullList.create());
-    }
-
-    @Override
-    public BlockEntityType<?> getType() {
-        return ModRegistry.CHUTE_BLOCK_ENTITY_TYPE.value();
     }
 
     @Override

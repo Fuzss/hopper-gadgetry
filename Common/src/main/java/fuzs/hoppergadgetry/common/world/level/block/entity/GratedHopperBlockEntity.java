@@ -3,6 +3,7 @@ package fuzs.hoppergadgetry.common.world.level.block.entity;
 import fuzs.hoppergadgetry.common.HopperGadgetry;
 import fuzs.hoppergadgetry.common.init.ModRegistry;
 import fuzs.hoppergadgetry.common.world.inventory.GratedHopperMenu;
+import fuzs.puzzleslib.common.api.block.v1.entity.BlockEntityHelper;
 import fuzs.puzzleslib.common.api.block.v1.entity.TickingBlockEntity;
 import fuzs.puzzleslib.common.api.container.v1.ContainerMenuHelper;
 import fuzs.puzzleslib.common.api.container.v1.ContainerSerializationHelper;
@@ -20,7 +21,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.Hopper;
 import net.minecraft.world.level.block.entity.HopperBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -35,12 +36,8 @@ public class GratedHopperBlockEntity extends HopperBlockEntity implements Tickin
             ItemStack.EMPTY);
 
     public GratedHopperBlockEntity(BlockPos blockPos, BlockState blockState) {
-        super(blockPos, blockState);
-    }
-
-    @Override
-    public BlockEntityType<?> getType() {
-        return ModRegistry.GRATED_HOPPER_BLOCK_ENTITY_TYPE.value();
+        super(blockPos, Blocks.HOPPER.defaultBlockState());
+        BlockEntityHelper.init(this, ModRegistry.GRATED_HOPPER_BLOCK_ENTITY_TYPE.value(), blockState);
     }
 
     @Override

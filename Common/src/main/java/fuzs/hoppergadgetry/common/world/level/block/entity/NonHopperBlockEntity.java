@@ -1,5 +1,6 @@
 package fuzs.hoppergadgetry.common.world.level.block.entity;
 
+import fuzs.puzzleslib.common.api.block.v1.entity.BlockEntityHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Blocks;
@@ -16,21 +17,7 @@ public abstract class NonHopperBlockEntity extends HopperBlockEntity {
 
     public NonHopperBlockEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
         super(blockPos, Blocks.HOPPER.defaultBlockState());
-        this.type = blockEntityType;
-        this.setBlockState(blockState);
-    }
-
-    @Override
-    public final BlockEntityType<?> getType() {
-        // change this via the field, as it is called in the constructor and must match with the vanilla hopper
-        // especially for compatibility with the Lithium mod,
-        // which otherwise stops implementations extending this class from successfully pushing items into other inventories
-        return super.getType();
-    }
-
-    @Override
-    public final boolean isValidBlockState(BlockState blockState) {
-        return super.isValidBlockState(blockState) || blockState == Blocks.HOPPER.defaultBlockState();
+        BlockEntityHelper.init(this, blockEntityType, blockState);
     }
 
     @Override
